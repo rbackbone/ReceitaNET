@@ -1,0 +1,18 @@
+[
+  {
+    "Codigo": "d001",
+    "Nome": "Doces"
+  },
+  {
+    "Codigo": "s001",
+    "Nome": "Salgados"
+  },
+  {
+    "Codigo": "g001",
+    "Nome": "Sem Glutem"
+  },
+  {
+    "Codigo": "l001",
+    "Nome": "Sem Lactose"
+  }
+]

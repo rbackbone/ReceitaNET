@@ -1,0 +1,50 @@
+[
+  {
+    "Codigo": "f001",
+    "Nome": "Farinha de trigo",
+    "xicara": 1,
+    "gramas": 120,
+    "colherSopa": 16,
+    "colherCha": 48
+  },
+  {
+    "Codigo": "q001",
+    "Nome": "Queijo ralado",
+    "xicara": 1,
+    "gramas": 80,
+    "colherSopa": 16,
+    "colherCha": 53
+  },
+  {
+    "Codigo": "m001",
+    "Nome": "Mel",
+    "xicara": 1,
+    "gramas": 300,
+    "colherSopa": 16,
+    "colherCha": 50
+  },
+  {
+    "Codigo": "o001",
+    "Nome": "Ovo Médio",
+    "xicara": 0,
+    "gramas": 50,
+    "colherSopa": 0,
+    "colherCha": 0
+  },
+  {
+    "Codigo": "o002",
+    "Nome": "Clara de ovo",
+    "xicara": 0,
+    "gramas": 30,
+    "colherSopa": 0,
+    "colherCha": 0
+  },
+  {
+    "Codigo": "o003",
+    "Nome": "Gema de ovo",
+    "xicara": 0,
+    "gramas": 20,
+    "colherSopa": 0,
+    "colherCha": 0
+  }
+]

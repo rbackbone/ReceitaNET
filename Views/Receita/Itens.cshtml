@@ -1,0 +1,103 @@
+﻿@{ ViewData["Title"] = "Receita.NET"; }
+
+@model IList<Insumo>;
+
+<h3>Meu Carrinho</h3>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+
+        <div class="row">
+            <div class="col-md-6">
+                Item
+            </div>
+            <div class="col-md-2 text-center">
+                Preço Unitário
+            </div>
+            <div class="col-md-2 text-center">
+                Quantidade
+            </div>
+            <div class="col-md-2">
+                <span class="pull-right">
+                    Subtotal
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+
+        @foreach (var item in Model)
+        {
+
+    <div class="row row-center linha-produto">
+        <div class="col-md-3">
+            <img class="img-produto-carrinho" src="/images/produtos/large_@(item.Codigo).jpg" />
+        </div>
+        <div class="col-md-3">@(item.Nome)</div>
+        <div class="col-md-2 text-center">@(item.Gramas) - gramas</div>
+        <div class="col-md-2 text-center">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default">
+                        <span class="glyphicon-minus"></span>
+                    </button>
+                </span>
+                <input type="text" value="@(item.ColherSopa) - colher sopa"
+                       class="form-control text-center" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default">
+                        <span class="glyphicon-plus">
+                            <a asp-controller="receita"
+                               asp-action="itens"
+                               asp-route-codigo="@(item.Codigo)"
+                               class="btn btn-success">
+                                Continuar Comprando
+                            </a>
+
+                        </span>
+                    </button>
+                </span>
+
+            </div>
+        </div>
+        <div class="col-md-2">
+             <span class="pull-right" subtotal>
+                
+            </span>
+        </div>
+    </div>
+    }
+
+    </div>
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-10">
+                <span numero-itens>
+                    Total: @(Model.Count())
+                    itens
+                </span>
+            </div>
+            <div class="col-md-2">
+                 <span class="pull-right" total>
+                    
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="pull-right">
+            <a class="btn btn-success" 
+                   asp-controller="receita"
+                   asp-action="novareceita" 
+                   asp-route-receitaId="0">
+                Voltar a Receita
+            </a>
+            <a class="btn btn-success" asp-controller="receita" asp-action="cadastro">
+                Preencher Cadastro
+            </a>
+        </div>
+    </div>
+</div>

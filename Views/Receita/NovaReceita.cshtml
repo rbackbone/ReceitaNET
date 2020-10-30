@@ -1,0 +1,87 @@
+﻿@{ ViewData["Title"] = "Receita.NET"; }
+@model Receita;
+
+<h3>Cadastro</h3>
+
+
+<form asp-action="salvar" method="post">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="control-label" for="nomeCliente">Título</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Título"
+                       asp-for="@Model.Titulo">
+                <span asp-validation-for="@Model.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="email">Modo de preparo</label>
+                <textarea class="form-control" id="preparo" cols="40" rows="10"
+                          asp-area="@Model.Preparo"></textarea>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+@foreach (var item in Model.Itens)
+{
+
+    <div class="col-md-4">
+        <div class="row row-center linha-produto">
+            <div class="input-group" insumo-id="@item.InsumoId" receita-id="@item.ReceitaId">
+                <label class="control-label" for="nome">@(item.Insumo.Nome)</label>
+                <label class="control-label" for="xicara">@(item.Insumo.Xicara)</label>
+                <label class="control-label" for="gramas">@(item.Insumo.Gramas)</label>
+                <input type="text" value="@(item.Quantidade)"
+                       class="form-control text-center"
+                       onblur="novaReceita.updateQuantidade(this)" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default"
+                            onclick="novaReceita.clickMenos(this)">
+                        <span class="glyphicon-minus"></span>
+                    </button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-default"
+                            onclick="novaReceita.clickMais(this)">
+                        <span class="glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div class="form-group">
+    <a asp-controller="receita"
+       asp-action="itens"
+       asp-route-codigo=""
+       class="btn btn-success">
+        Inserir Insumo
+    </a>
+</div>
+<div class="form-group">
+    <button type="submit"
+            class="btn btn-success">
+        Salvar Receita
+    </button>
+</div>
+
+
+
+
+@section Scripts
+{
+    <script src="~/js/novareceita.js">
+
+
+
+
+    </script>
+
+}
