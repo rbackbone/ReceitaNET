@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using mvc001.Models;
 using mvc001.Repositorio;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace mvc001
 {

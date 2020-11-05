@@ -7,13 +7,7 @@ using System.Threading.Tasks;
 
 namespace mvc001.Repositorio
 {
-    public interface IRepositorioItemReceita
-    {
-        AlteraQuantidadeResposta AlteraQuantidade(ItemReceita itemReceita);
-        void RemoveItemReceita(int insumoId, int receitaId);
-        ItemReceita GetItemReceita(int insumoId, int receitaId);
-        public List<ItemReceita> GetItensReceita(int receitaId);
-    }
+
     public class RepositorioItemReceita : RepositorioBase<ItemReceita>, IRepositorioItemReceita
     {
         public RepositorioItemReceita(AppContext contexto) : base(contexto)

@@ -1,20 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using mvc001.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace mvc001.Repositorio
 {
-    public interface IRepositorioReceita
-    {
-        IList<Receita> GetReceitas();
 
-        Receita GetReceita(int receitaId);
-        void AddInsumo(string codigo);
-    }
 
     public class RepositorioReceita : RepositorioBase<Receita>, IRepositorioReceita
     {
@@ -76,12 +68,19 @@ namespace mvc001.Repositorio
             Receita receita;
             var receitaId = GetReceitaId();
             int intRec = 0;
-            
-            if (receitaId != null)
-            intRec = (int)receitaId;
 
-            receita = ConsultaReceita(intRec);
-            GravaReceita(receita);
+            if (receitaId != null)
+            { 
+                intRec = (int)receitaId;
+                receita = ConsultaReceita(intRec);
+            }
+            else
+            {
+                receita = new Receita("R001", "Torta Scaffould");
+                dbSet.Add(receita);
+                GravaReceita(receita);
+            }
+            
             return receita;
         }
 
@@ -97,11 +96,6 @@ namespace mvc001.Repositorio
 
         private void GravaReceita (Receita receita)
         {
-            if (receita == null)
-            {
-                receita = new Receita("R001", "Torta Scaffould");
-                dbSet.Add(receita);
-            }
             contexto.SaveChanges();
             SetReceitaId(receita.ReceitaId);
 

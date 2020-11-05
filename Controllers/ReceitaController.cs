@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using mvc001.Models;
 using System.Diagnostics;
@@ -50,7 +47,6 @@ namespace mvc001.Controllers
                 repositorioReceita.AddInsumo(codigo);
             }
 
-            //Receita receita = repositorioReceita.GetReceita();
             IList<Insumo> insumos = repositorioInsumo.GetInsumos();
             return View(insumos);
 

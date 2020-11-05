@@ -1,15 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Components.Forms;
 
 using mvc001.Repositorio;
 
@@ -24,15 +19,12 @@ namespace mvc001
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
             services.AddApplicationInsightsTelemetry(); // adicionar quando migrar netcore 2 para 3
             services.AddDistributedMemoryCache();
             services.AddSession();
-            //services.AddControllers().AddNewtonsoftJson();
-            //services.AddControllersWithViews().AddNewtonsoftJson();
 
             //   sem este serviço adicionado a deserialização AJAX não funciona no Controller
             services.AddRazorPages().AddNewtonsoftJson();            

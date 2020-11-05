@@ -1,4 +1,3 @@
-using System;
 
 namespace mvc001.Models
 {
